@@ -1,7 +1,7 @@
 import React from 'react';
 import * as userService from '../utilities/users-services'
 
-export default function NewOrderPage() {
+export default function OrderHistoryPage() {
 
     const handleCheckToken = async () => {
        const expDate = await userService.checkToken();

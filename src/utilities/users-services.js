@@ -33,7 +33,7 @@ export async function signUp(userData) {
 }
 
 export async function logIn(credentials) {
-    const token = await usersAPI.logIn(credentials);
+    const token = await usersAPI.login(credentials);
 
     localStorage.setItem('token', token)
 }

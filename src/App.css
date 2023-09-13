@@ -151,3 +151,184 @@ button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
+
+.App {
+  height: 100%;
+}
+
+.AuthPage {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 2vmin;
+}
+
+.AuthPage h3 {
+  margin-top: 4vmin;
+  text-align: center;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.NewOrderPage {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.6fr 3.5fr 3fr;
+  grid-template-rows: 1fr;
+  background-color: var(--white);
+  border-radius: 2vmin;
+}
+
+.NewOrderPage aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3vmin 2vmin;
+}
+
+.OrderDetail {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3vmin;
+  font-size: 2vmin;
+  color: var(--text-light);
+}
+
+.OrderDetail .sectionHeading {
+  width: 100%
+}
+
+.OrderDetail .lineItemContainer {
+  margin-top: 3vmin;
+  justify-content: flex-start;
+  height: calc(100vh - 18vmin);
+  width: 100%;
+}
+
+.OrderDetail .total {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 18.35vw 5.75vw 5.25vw;
+  padding: 1vmin 0;
+  color: var(--text-light);
+  border-top: .1vmin solid var(--tan-3);
+}
+
+.OrderDetail .total span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  color: var(--text-dark);
+}
+
+.OrderDetail .total span.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.OrderDetail .hungry {
+  position: absolute;
+  top: 50vh;
+  font-size: 2vmin;
+}
+
+.LineItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;
+  padding: 1vmin 0;
+  color: var(--text-light);
+  background-color: var(--white);
+  border-top: .1vmin solid var(--tan-3);
+  font-size: 1.5vw;
+  }
+  
+  .LineItem:last-child {
+  border-bottom: .1vmin solid var(--tan-3);
+  }
+  
+  .LineItem .qty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3vw;
+  }
+  
+  .LineItem .extPrice {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.3vw;
+  }
+  
+  .LineItem button {
+  margin: 0;
+  }
+
+  .Logo {
+    height: 12vmin;
+    width: 12vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--orange);
+    color: var(--tan-1);
+    font-size: 2.7vmin;
+    border: .6vmin solid var(--tan-2);
+    }
+
+    .MenuList {
+      background-color: var(--tan-1);
+      border: .1vmin solid var(--tan-3);
+      border-radius: 2vmin;
+      margin: 3vmin 0;
+      padding: 3vmin;
+      overflow-y: scroll;
+      }
+
+      .MenuListItem {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3vmin;
+        padding: 2vmin;
+        color: var(--text-light);
+        background-color: var(--white);
+        border: .1vmin solid var(--tan-3);
+        border-radius: 1vmin;
+        font-size: 4vmin;
+      }
+      
+      .MenuListItem .emoji {
+        height: 8vw;
+        width: 8vw;
+        font-size: 4vw;
+        background-color: var(--tan-1);
+        border: .1vmin solid var(--tan-3);
+        border-radius: 1vmin;
+      }
+      
+      .MenuListItem .buy {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .MenuListItem .buy span {
+        font-size: 1.7vw;
+        text-align: center;
+        color: var(--text-light);
+      }
+      
+      .MenuListItem .name {
+        font-size: 2vw;
+        text-align: center;
+        color: var(--text-light);
+      }

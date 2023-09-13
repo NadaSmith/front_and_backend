@@ -25,6 +25,10 @@ app.use(require('./config/checkToken'));
 
 app.use('/api/users', require('./routes/api/users'));
 
+app.use('/api/users', require('./routes/api/items'));
+
+app.use('/api/users', require('./routes/api/orders'));
+
 //static catch-all app; always goes last bc want to test everything else first
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

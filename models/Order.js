@@ -43,12 +43,6 @@ orderSchema.statics.getCart = function(userId) {
     )
 };
 
-orderSchema.methods.addItemTOCart = async function(itemId) {
-    const cart = this;
-
-    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId))
-}
-
 orderSchema.methods.addItemToCart = async function(itemId) {
     const cart = this;
     // Check if item already in cart

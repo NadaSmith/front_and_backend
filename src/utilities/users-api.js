@@ -1,7 +1,7 @@
 import { getToken } from "./users-services";
 const BASE_URL = 'api/users';
 
-/*--- Helper Functions ---*/
+/*------------------------------------ Helper Functions ----------------------------*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument
@@ -21,35 +21,16 @@ async function sendRequest(url, method = 'GET', payload = null) {
     if (res.ok) return res.json();
     throw new Error('Bad Request');
 }
+//---------------------------------------Requests--------------------------------------
 
-export async function signUp(userData) {
-    const res = await fetch(BASE_URL, {
-        method:'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
-    });
-
-    if (res.ok) {
-        return res.json();
-    } else {
-        throw new Error('Invalid Sign Up');
-    }
-}
-
-export async function logIn(credentials) {
-    const res = await fetch(`${BASE_URL}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials)
-    });
-
-    if (res.ok) {
-        return res.json();
-    } else {
-        throw new Error('Invalid Login')
-    }
-}
-
-export function checkToken() {
+export function signUp(userData) {
+    return sendRequest(BASE_URL, 'POST', userData);
+  }
+  
+  export function login(credentials) {
+    return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
+  }
+  
+  export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`);
 }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
-const bcrypt = reqire('')
+const Schema = mongoose.Schema;
+const bcrypt = reqire('bcrypt');
 
 const SALT_ROUNDS = 6;
 
@@ -19,7 +19,7 @@ const userSchema = new Schema({
         minLength: 8,
         required: true
     }
-} {
+}, {
     timestamps: true,
     toJSON: {
         transform: function(doc, ret) {
@@ -30,7 +30,10 @@ const userSchema = new Schema({
 });
 
 userSchema.pre('save', async function(next){
-    if (!this.isModified('password'))
+    if (!this.isModified('password')) 
+    return next();
+
+    this.password = await bcrypt.hash(this.password, SALT-ROUNDS);
     return next();
 
 })

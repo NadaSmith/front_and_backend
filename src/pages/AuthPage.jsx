@@ -4,13 +4,18 @@ import LogInForm from '../components/LogInForm/LogInForm';
 
 
 export default function AuthPage({setUser}) {
+  CONST [showLogin, setShowLogin] = useState(true);
   return (
     <main>
       <h1>AuthPage</h1>
-      <h2>Sigh Up</h2>
-      <SignUpForm setUser={setUser}/>
-      <h2>Log In</h2>
-      <LogInForm setUser={setUser}/>
+
+      <div>
+        <h3 onClick={() => setShowLogin(!showLogin)}> {showLogin ? 'SIGN UP' : 'LOG IN'}</h3>
+      </div>
+      
+
+      {showLogin ? <loginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
+      
     </main>
   );
 }

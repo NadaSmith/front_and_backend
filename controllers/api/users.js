@@ -30,7 +30,7 @@ async function logIn(req, res) {
             .then(foundUser => {
                 //important thing to note is that findOne will not error if no user is found, instead it just ets foundUser to undefined. therefere, we have to check if the user was found
                 if (foundUser) {
-                    //if a user was fgound, we thenneed to compare the password they entered in the login form with the hpassword stored in the database. we do not have to input the salt because the hash
+                    //if a user was fgound, we thenneed to compare the password they entered in the login form with the password stored in the database. we do not have to input the salt because the hash in the database also contains a key used to rehash a new password for comparison
                     bcrypt.compare(req.body.password, foundUser.password, (error, result) => {
                         //if there was an error in the compare, this runs
                         if (error) {
@@ -44,16 +44,20 @@ async function logIn(req, res) {
                                 const token = createJWT(foundUser);
                                 //sends back a status code of 200 (ok)
                                 res.status(200).json(token);
+                              //if the passwords don't match
+                            } else {
+                                //sends back a status cod of 403(invalid password) as well as a message stating why
+                                res.status(403).json({ error: 'Invalid password!' })
                             }
                         }
                     })
                     //if a user was not found matching the emaill provided
                 } else {
-                    //sends back a status code 
-                    res.status(403).json({ error: 'User not found'})
+                    //sends back a status code 404 which means user not found
+                    res.status(404).json({ error: 'User not found'})
                 }
             })
-            
+        //if any program-breaking error happens inside of th etry block, this code runs here and the program continues as normal.
     } catch (error) {
         res.status(400).json({ error });
     }
