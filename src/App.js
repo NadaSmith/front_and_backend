@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import AuthPage from './pages/AuthPage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import NewOrderPage from './pages/OrderHistoryPage';
 import { getUser } from './utilities/users-services';
