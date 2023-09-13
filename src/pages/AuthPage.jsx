@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 export default function AuthPage({setUser}) {
-  CONST [showLogin, setShowLogin] = useState(true);
+  const [showLogin, setShowLogin] = useState(true);
 
   return (
     <main className="AuthPage">

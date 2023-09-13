@@ -1,4 +1,4 @@
-import { getToken } from "./users-services";
+import sendRequest from "./send-request";
 const BASE_URL = 'api/users';
 
 /*------------------------------------ Helper Functions ----------------------------*/
